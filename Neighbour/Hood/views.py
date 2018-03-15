@@ -4,8 +4,8 @@ from django.shortcuts import render
 
 
 def home(request):
-    hi = "Hi all!"
+    hi = "Hi there!"
     content = {
-        "hi": hi
+        "hi": hi,
     }
     return render(request, 'home.html', content)
