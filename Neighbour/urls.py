@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from . import views
+
+"""
+Here we add the django inbuilt accounts app and our accounts app url.
+"""
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include('Hood.urls')),
+    url(r'^$', views.Homepage.as_view(), name='home'),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^myaccounts/', include('accounts.a_urls', namespace='myaccounts')),
+    url(r'^hood', include('Hood.urls', namespace='Hood')),
 ]
