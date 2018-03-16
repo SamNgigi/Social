@@ -14,7 +14,7 @@ urlpatterns = [
         auth_views.LogoutView.as_view(), name='logout'),
 
     url(r'register/$', views.SignUp.as_view(), name='register'),
-    url(r'^$', views.test, name='test'),
+    url(r'^$', views.acc, name='acc'),
 ]
 
 if settings.DEBUG:

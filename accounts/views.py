@@ -23,7 +23,7 @@ class SignUp(CreateView):
     template_name = 'register.html'
 
 
-def test(request):
+def acc(request):
     hi = "You are about to enter a whole new world"
     content = {
         "hi": hi
