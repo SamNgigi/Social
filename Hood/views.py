@@ -3,9 +3,9 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def home(request):
+def mtaa(request):
     hi = "Hi there!"
     content = {
         "hi": hi,
     }
-    return render(request, 'home.html', content)
+    return render(request, 'mtaa.html', content)
