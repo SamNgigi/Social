@@ -26,5 +26,5 @@ urlpatterns = [
     url(r'^$', views.Homepage.as_view(), name='home'),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^myaccounts/', include('accounts.a_urls', namespace='myaccounts')),
-    url(r'^hood', include('Hood.urls', namespace='Hood')),
+    url(r'^mtaa', include('Hood.urls', namespace='Hood')),
 ]
