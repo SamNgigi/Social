@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'bootstrap4',
     'accounts',
+    'Posts.apps.PostsConfig',
     'Hood.apps.HoodConfig',
     'django.contrib.admin',
     'django.contrib.auth',

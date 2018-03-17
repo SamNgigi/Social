@@ -1,9 +1,11 @@
 from django.db import IntegrityError
 from django.shortcuts import render, get_object_or_404
 # We can put imports on multiple lines by putting them within brackets
-from django.contrib.auth.mixins import (LoginRequiredMixin)
-# PermissionRequiredMixin
-from djnago.contrib import messages
+from django.contrib.auth.mixins import (
+    LoginRequiredMixin,
+    # PermissionRequiredMixin
+)
+from django.contrib import messages
 from django.core.urlresolvers import reverse
 # generic allows us to work with classed based views
 from django.views import generic
