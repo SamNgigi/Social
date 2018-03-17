@@ -1,0 +1,26 @@
+{% extends "hood-base.html" %}
+{% block prehood %}
+  <h1>{{hood.name}}</h1>
+  <h1>Member Count{{hood.members.count}}</h1>
+  <div class="content">
+    <!--We check if a user is a particular group then enable them to leave or join a group-->
+    {% if user in hood.members.all %}
+      <a href="{url 'hood:leave' slug=hood.slug}" class="btn btn-lg btn-fill btn-outline-warning"><i class="fa fa-minus-circle " aria-hidden="true"></i>Leave</a>
+      {% else %}
+      <a href="{url 'hood:join' slug=hood.slug}" class="btn btn-lg btn-fill btn-outline-warning"><i class="fa fa-plus-circle " aria-hidden="true"></i>Join</a>
+    {% endif %}
+  </div>
+{% endblock %}
+{% block hood-content %}
+  <div class="col-md-8">
+    <!--We check if there are any posts in a hood-->
+    {% if hood.posts.count == 0 %}
+      <h2>No posts in this group yet!</h2>
+    {% else %}
+    <!--We loop through all the posts to a hood-->
+      {% for post in hood.posts.all %}
+        {% include "post-snippets.html" %}
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endblock %}

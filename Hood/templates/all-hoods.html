@@ -1,0 +1,43 @@
+{% extends "hood-base.html" %}
+
+{% block prehood %}
+  <div class="col-md-4">
+    <div class="content">
+      {% if user.is_authenticated %}
+        <h2>Welcome Back
+          <a href="{%url 'posts:profile' username=user.usename%}">
+            @{{user.username}}
+          </a>
+        </h2>
+      {% endif %}
+      <h2>Hoods</h2>
+      <p>Welcome to the neighbourhoods page!</p>
+    </div>
+    {% if user.is_authenticated %}
+      <a href="{% url 'hood:new' %}" class="btn btn-md btn-fill btn-outline-primary"><i class="fa fa-plus-circle"></i>New Neighbourhood</a>
+    {% endif %}
+  </div>
+{% endblock %}
+
+{% block hood_content %}
+  <div class="col-md-8">
+    <div class="list-group">
+      {% for hood in object_list %}
+        <a class="list-group-item" href="{% url 'hood:single' slug=group.slug %}">
+          <h3 class="title list-group-item-heading">{{hood.name}}</h3>
+          <div class="list-group-item-text container-fluid">
+            {{hood.description_html|safe}}
+            <div class="row">
+              <div class="col-md-4">
+                <span class="badge">{{hood.members.count}}</span>member{{hood.members.count|pluralize}}
+              </div>
+              <div class="col-md-4">
+                <span class="badge">{{hood.posts.count}}</span>member{{hood.posts.count|pluralize}}
+              </div>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

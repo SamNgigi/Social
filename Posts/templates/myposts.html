@@ -1,0 +1,17 @@
+{% extends "post-base.html" %}
+
+{% block prepost %}
+  <div class="col-md-8">
+    {% for post in post_list %}
+      {% include "post-snippets.html" %}
+    {% endfor %}
+  </div>
+{% endblock %}
+
+{% block post_content %}
+  <div class="col-md-8">
+    {% for post in post_list %}
+      {% include "post-snippets.html" %}
+    {% endfor %}
+  </div>
+{% endblock %}

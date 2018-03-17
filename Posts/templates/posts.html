@@ -1,0 +1,41 @@
+{% extends "post-base.html" %}
+
+{% block pre_post_content %}
+<div class="col-md-4">
+  {% if request.user.is_authenticated %}
+  <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    <div class="uk-card-badge uk-label">Badge</div>
+    <h3 class="uk-card-title">Your Hoods</h3>
+    <dl class="uk-description-list uk-description-list-divider">
+      {% for member_hood in get_user_hood %}
+      <!-- Lists the hoods you are a part of. -->
+      <dt></dt>
+      <dd>
+        <a href="{% url 'Hood:single' slug=member_hood.hood.slug %}"></a>
+      </dd>
+      {% endfor %}
+    </dl>
+  </div>
+  {% endif %}
+  <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    <div class="uk-card-badge uk-label">Badge</div>
+    <h3 class="uk-card-title">All Hoods</h3>
+    <dl class="uk-description-list uk-description-list-divider">
+      {% for other_hood in get_other_hood %}
+      <!-- Lists the hoods you are a part of. -->
+      <dt></dt>
+      <dd>
+        <a href="{% url 'Hood:single' slug=other_hood.slug %}"></a>
+      </dd>
+      {% endfor %}
+    </dl>
+  </div>
+</div>
+{% endblock %}
+{% block post_content %}
+  <div class="col-md-8">
+    {% for post in post_list  %}
+      {% include "post-snippets.html" %}
+    {% endfor %}
+  </div>
+{% endblock %}
