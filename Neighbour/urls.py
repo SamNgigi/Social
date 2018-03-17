@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^myaccounts/', include('accounts.a_urls', namespace='myaccounts')),
     url(r'^mtaa', include('Hood.urls', namespace='Hood')),
+    url(r'^posts', include('Posts.urls', namespace='Posts')),
     url(r'^test/', views.Testpage.as_view(), name='test'),
     url(r'^thanks/', views.ThanksPage.as_view(), name='thanks'),
 ]
